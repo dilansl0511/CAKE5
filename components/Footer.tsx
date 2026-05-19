@@ -64,7 +64,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-xs text-white/40 font-sans">WhatsApp</p>
-                  <p className="text-sm text-white/80 font-sans">+506 8762-1817</p>
+                  <p className="text-sm text-white/80 font-sans">+506 8404-3838</p>
                 </div>
               </a>
               <a href={IG_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
