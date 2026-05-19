@@ -61,7 +61,7 @@ caketoppercostarica/
 ### Cambiar número de WhatsApp
 Busca y reemplaza en todos los archivos:
 ```
-50687621817 → tu número real (ej: 50699991234)
+50684043838 → tu número real (ej: 50699991234)
 ```
 
 ### Cambiar usuario de Instagram

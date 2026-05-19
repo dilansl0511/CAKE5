@@ -1,6 +1,6 @@
 "use client";
 
-const WA_LINK = "https://wa.me/50687621817?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
+const WA_LINK = "https://wa.me/50684043838?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
 
 export default function Hero() {
   return (

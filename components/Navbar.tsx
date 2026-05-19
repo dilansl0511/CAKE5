@@ -11,7 +11,7 @@ export default function Navbar() {
   }, []);
 
   const WA_LINK =
-    "https://wa.me/50687621817?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
+    "https://wa.me/50684043838?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
 
   return (
     <header
@@ -28,6 +28,9 @@ export default function Navbar() {
           </span>
           <span className="text-xs tracking-[0.3em] text-mauve uppercase" style={{ fontFamily: "var(--font-jost)" }}>
             Costa Rica
+          </span>
+          <span className="text-[10px] tracking-[0.2em] text-mauve/70 uppercase mt-1" style={{ fontFamily: "var(--font-jost)" }}>
+            Desde 2017
           </span>
         </a>
 

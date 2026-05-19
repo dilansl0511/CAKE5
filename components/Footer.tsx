@@ -1,5 +1,5 @@
 export default function Footer() {
-  const WA_LINK = "https://wa.me/50687621817?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
+  const WA_LINK = "https://wa.me/50684043838?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
   const IG_LINK = "https://www.instagram.com/tiquicia3dcr/";
   const FB_LINK = "https://www.facebook.com/tiquicia3dcr";
 
@@ -12,6 +12,7 @@ export default function Footer() {
             <div className="mb-4">
               <p className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-playfair)" }}>CakeTopper</p>
               <p className="text-xs tracking-[0.3em] text-blush-300 uppercase font-sans">Costa Rica</p>
+              <p className="text-[10px] tracking-[0.2em] text-blush-200/70 uppercase mt-1 font-sans">Desde 2017</p>
             </div>
             <p className="text-sm font-sans leading-relaxed text-white/60 max-w-xs">
               Hacemos que cada celebración sea única con toppers personalizados llenos de amor y detalle. 🌺
