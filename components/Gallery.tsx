@@ -25,8 +25,8 @@ const categories = [
   {
     name: "Cumpleaños",
     emoji: "🎂",
-    mainImg: "/Feliz_Cumpleaños_5_main.jpeg",
-    gallery: ["/Feliz_Cumpleaños_1.png", "/Feliz_Cumpleaños_2.png", "/Feliz_Cumpleaños_3.png", "/Feliz_Cumpleaños_4.jpeg", "/Feliz_Cumpleaños_6.png", "/Feliz_Cumpleaños_7.png"],
+    mainImg: "/Cumpleanos_5_main.jpeg",
+    gallery: ["/Cumpleanos_1.png", "/Cumpleanos_2.png", "/Cumpleanos_3.png", "/Cumpleanos_4.jpeg", "/Cumpleanos_6.png", "/Cumpleanos_7.png"],
   },
   {
     name: "Personalizados con Nombre",
@@ -37,20 +37,20 @@ const categories = [
   {
     name: "Primera Comunión",
     emoji: "🕊️",
-    mainImg: "/Primera_Comunión_2_main.png",
-    gallery: ["/Primera_comunión_1.png", "/Primera_comunión_3.jpeg", "/Primera_comunión_4.png"],
+    mainImg: "/Comunion_2_main.png",
+    gallery: ["/Comunion_1.png", "/Comunion_3.jpeg", "/Comunion_4.png"],
   },
   {
     name: "Revelación de Género",
     emoji: "👶",
-    mainImg: "/Revelación_de_Género_1_main.jpeg",
-    gallery: ["/Revelación_de_Género_2.png"],
+    mainImg: "/Revelacion_1_main.jpeg",
+    gallery: ["/Revelacion_2.png"],
   },
   {
     name: "Temáticos",
     emoji: "🎨",
-    mainImg: "/Temáticos_1_main.png",
-    gallery: ["/Temáticos_2.png", "/Temáticos_3.png", "/Temáticos_4.png"],
+    mainImg: "/Tematicos_1_main.png",
+    gallery: ["/Tematicos_2.png", "/Tematicos_3.png", "/Tematicos_4.png"],
   },
 ];
 
@@ -58,7 +58,6 @@ export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [activeImg, setActiveImg] = useState<string | null>(null);
 
-  const openLightbox = (img: string) => setActiveImg(img);
   const closeLightbox = () => setActiveImg(null);
 
   return (
@@ -84,13 +83,12 @@ export default function Gallery() {
           {categories.map((cat, i) => (
             <div key={cat.name} className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white">
               {/* Main image */}
-              <div className="aspect-[3/4] overflow-hidden" onClick={() => setActiveCategory(activeCategory === i ? null : i)}>
+              <div className="aspect-[3/4] overflow-hidden relative" onClick={() => setActiveCategory(activeCategory === i ? null : i)}>
                 <img
                   src={cat.mainImg}
                   alt={cat.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3d2a2a]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 {/* Badge */}
                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
@@ -102,30 +100,35 @@ export default function Gallery() {
                     +{cat.gallery.length}
                   </div>
                 )}
-                {/* Label */}
+                {/* Hover label */}
                 <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   <p className="text-white font-sans font-semibold text-sm">{cat.name}</p>
                   <p className="text-white/70 text-xs font-sans">Ver más fotos</p>
                 </div>
               </div>
 
-              {/* Category name always visible */}
+              {/* Category name */}
               <div className="p-3 text-center">
                 <p className="text-sm font-sans font-semibold text-[#3d2a2a]">{cat.name}</p>
               </div>
 
-              {/* Expanded gallery */}
+              {/* Expanded gallery overlay */}
               {activeCategory === i && cat.gallery.length > 0 && (
                 <div className="absolute inset-0 bg-white z-10 p-3 overflow-y-auto rounded-2xl">
-                  <button onClick={() => setActiveCategory(null)}
+                  <button
+                    onClick={() => setActiveCategory(null)}
                     className="absolute top-2 right-2 w-7 h-7 bg-blush-100 text-blush-500 rounded-full flex items-center justify-center text-lg font-bold hover:bg-blush-200 transition-colors z-20">
                     ×
                   </button>
                   <p className="text-xs font-sans font-semibold text-[#3d2a2a] mb-2 mt-1 text-center">{cat.name}</p>
                   <div className="grid grid-cols-2 gap-2">
-                    <img src={cat.mainImg} alt={cat.name} className="rounded-xl w-full aspect-square object-cover cursor-pointer hover:opacity-90" onClick={() => openLightbox(cat.mainImg)} />
+                    <img src={cat.mainImg} alt={cat.name}
+                      className="rounded-xl w-full aspect-square object-cover cursor-pointer hover:opacity-90"
+                      onClick={() => setActiveImg(cat.mainImg)} />
                     {cat.gallery.map((img) => (
-                      <img key={img} src={img} alt={cat.name} className="rounded-xl w-full aspect-square object-cover cursor-pointer hover:opacity-90" onClick={() => openLightbox(img)} />
+                      <img key={img} src={img} alt={cat.name}
+                        className="rounded-xl w-full aspect-square object-cover cursor-pointer hover:opacity-90"
+                        onClick={() => setActiveImg(img)} />
                     ))}
                   </div>
                 </div>
@@ -147,7 +150,9 @@ export default function Gallery() {
       {activeImg && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={closeLightbox}>
           <button onClick={closeLightbox} className="absolute top-4 right-4 text-white text-4xl font-light hover:opacity-70">×</button>
-          <img src={activeImg} alt="Topper" className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain" onClick={e => e.stopPropagation()} />
+          <img src={activeImg} alt="Topper"
+            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain"
+            onClick={e => e.stopPropagation()} />
         </div>
       )}
     </section>
