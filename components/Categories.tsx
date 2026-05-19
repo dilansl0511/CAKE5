@@ -20,7 +20,7 @@ const categories = [
     title: "Bodas",
     subtitle: "El día más especial",
     description:
-      "Iniciales, siluetas de parejas, frases románticas en acrílico dorado o plata. Elegancia pura.",
+      "Iniciales, siluetas de parejas, frases románticas en dorado o plateado. Elegancia pura.",
     tags: ["Dorado", "Plata", "Minimalista"],
     bg: "bg-gradient-to-br from-blush-50 to-rose-50",
     border: "border-blush-100",
