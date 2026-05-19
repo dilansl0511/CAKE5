@@ -63,7 +63,7 @@ export default function FAQ() {
 
         <div className="mt-10 text-center p-8 bg-white rounded-3xl border border-blush-100 shadow-sm">
           <p className="font-bold text-xl text-[#3d2a2a] mb-2" style={{ fontFamily: "var(--font-playfair)" }}>¿Tienes otra pregunta?</p>
-          <p className="text-[#3d2a2a]/60 font-sans text-sm mb-5">Estamos disponibles de lunes a sábado, 8 am – 6 pm.</p>
+          <p className="text-[#3d2a2a]/60 font-sans text-sm mb-5">Estamos disponibles de lunes a domingo.</p>
           <a href="https://wa.me/50687621817?text=Hola!%20Tengo%20una%20consulta." target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-sans font-semibold px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300 shadow-md">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

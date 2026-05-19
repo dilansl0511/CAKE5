@@ -58,7 +58,7 @@ export default function Hero() {
 
         {/* Stats */}
         <div className="mt-12 flex flex-wrap justify-center gap-10">
-          {[["1000+","Pedidos entregados"],["100%","Personalizados"],["2-3 días","Tiempo de fabricación"]].map(([num, label]) => (
+          {[["1000+","Toppers fabricados"],["100%","Personalizados"],["2-3 días","Tiempo de fabricación"]].map(([num, label]) => (
             <div key={num} className="text-center">
               <p className="text-3xl font-bold text-gradient" style={{ fontFamily: "var(--font-playfair)" }}>{num}</p>
               <p className="text-sm text-[#3d2a2a]/50 font-sans mt-1">{label}</p>
