@@ -2,20 +2,37 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cake Toppers Personalizados en Costa Rica | CakeTopper CR",
+  metadataBase: new URL("https://caketoppercostarica.com"),
+  title: "Cake Toppers Personalizados en Costa Rica | CakeTopper Costa Rica",
   description:
     "Cake toppers personalizados para bodas, cumpleaños, baby shower, graduaciones, arreglos florales, recuerdos y más en Costa Rica. Diseños únicos y resistentes, fabricados en plástico. ¡Pedidos por WhatsApp!",
   keywords: [
     "cake topper costa rica",
-    "toppers para torta",
+    "cake toppers costa rica",
     "cake topper personalizado",
-    "decoración de tortas",
+    "topper personalizado costa rica",
+    "topper para queque costa rica",
     "cake topper boda",
     "cake topper cumpleaños",
-    "toppers personalizados costa rica",
-    "topper para queque costa rica",
+    "topper baby shower",
+    "topper graduación",
+    "arreglos florales con topper",
   ],
   authors: [{ name: "CakeTopper Costa Rica" }],
+  alternates: {
+    canonical: "https://caketoppercostarica.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: "Cake Toppers Personalizados en Costa Rica",
     description:
@@ -26,10 +43,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/Boda_o_Matrimonio_3_main.png",
-        width: 1200,
-        height: 1200,
-        alt: "Cake topper personalizado de boda en Costa Rica",
+        url: "https://caketoppercostarica.com/Boda_o_Matrimonio_3_main.png",
+        width: 1190,
+        height: 1322,
+        alt: "Cake topper personalizado para boda en Costa Rica",
       },
     ],
   },
@@ -38,9 +55,8 @@ export const metadata: Metadata = {
     title: "Cake Toppers Personalizados en Costa Rica",
     description:
       "Cake toppers personalizados para bodas, cumpleaños, baby shower, graduaciones, arreglos florales, recuerdos y más en Costa Rica. Diseños únicos y resistentes, fabricados en plástico. ¡Pedidos por WhatsApp!",
-    images: ["/Boda_o_Matrimonio_3_main.png"],
+    images: ["https://caketoppercostarica.com/Boda_o_Matrimonio_3_main.png"],
   },
-  metadataBase: new URL("https://caketoppercostarica.com"),
 };
 
 export default function RootLayout({
