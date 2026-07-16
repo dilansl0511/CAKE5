@@ -14,7 +14,6 @@ const categories = [
     bg: "bg-gradient-to-br from-yellow-50 to-orange-50",
     border: "border-orange-100",
     accent: "text-orange-400",
-    href: "/topper-cumpleanos",
   },
   {
     emoji: "💍",
@@ -26,7 +25,6 @@ const categories = [
     bg: "bg-gradient-to-br from-blush-50 to-rose-50",
     border: "border-blush-100",
     accent: "text-blush-500",
-    href: "/topper-bodas",
   },
   {
     emoji: "🎓",
@@ -38,7 +36,6 @@ const categories = [
     bg: "bg-gradient-to-br from-blue-50 to-indigo-50",
     border: "border-blue-100",
     accent: "text-blue-400",
-    href: "/topper-tematicos",
   },
   {
     emoji: "👶",
@@ -50,7 +47,6 @@ const categories = [
     bg: "bg-gradient-to-br from-purple-50 to-pink-50",
     border: "border-purple-100",
     accent: "text-purple-400",
-    href: "/topper-revelacion-de-genero",
   },
   {
     emoji: "✨",
@@ -62,7 +58,6 @@ const categories = [
     bg: "bg-gradient-to-br from-champagne to-cream",
     border: "border-rose-100",
     accent: "text-dusty",
-    href: "/cake-topper-personalizado",
   },
 ];
 
@@ -96,7 +91,9 @@ export default function Categories() {
           {categories.map((cat, i) => (
             <a
               key={cat.title}
-              href={cat.href}
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`group relative ${cat.bg} border ${cat.border} p-6 rounded-3xl hover:shadow-xl transition-all duration-400 hover:-translate-y-2 cursor-pointer ${
                 i === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
