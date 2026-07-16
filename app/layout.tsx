@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://caketoppercostarica.com/Boda_o_Matrimonio_3_main.png",
+        url: "https://caketoppercostarica.com/boda-matrimonio-main.png",
         width: 1190,
         height: 1322,
         alt: "Cake topper personalizado para boda en Costa Rica",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Cake Toppers Personalizados en Costa Rica",
     description:
       "Cake toppers personalizados para bodas, cumpleaños, baby shower, graduaciones, arreglos florales, recuerdos y más en Costa Rica. Diseños únicos y resistentes, fabricados en plástico. ¡Pedidos por WhatsApp!",
-    images: ["https://caketoppercostarica.com/Boda_o_Matrimonio_3_main.png"],
+    images: ["https://caketoppercostarica.com/boda-matrimonio-main.png"],
   },
 };
 

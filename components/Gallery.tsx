@@ -7,50 +7,74 @@ const categories = [
   {
     name: "Aniversario",
     emoji: "💑",
-    mainImg: "/Aniversario_1_main.jpeg",
-    gallery: ["/Aniversario_2.png", "/Aniversario_3.jpeg"],
+    mainImg: "/aniversario-main.png",
+    gallery: ["/aniversario-01.png", "/aniversario-02.png", "/aniversario-03.png"],
   },
   {
     name: "Bautizo",
     emoji: "✝️",
-    mainImg: "/Bautizo_2_main.png",
-    gallery: ["/Bautizo_1.png"],
+    mainImg: "/bautizo-main.png",
+    gallery: ["/bautizo-01.png"],
   },
   {
     name: "Boda & Matrimonio",
     emoji: "💍",
-    mainImg: "/Boda_o_Matrimonio_3_main.png",
-    gallery: ["/Boda_o_Matrimonio_1.png", "/Boda_o_matrimonio_2.png", "/Boda_o_matrimonio_4.png"],
+    mainImg: "/boda-matrimonio-main.png",
+    gallery: ["/boda-matrimonio-01.png", "/boda-matrimonio-02.png", "/boda-matrimonio-03.png", "/boda-matrimonio-04.png", "/boda-matrimonio-05.png", "/boda-matrimonio-06.png", "/boda-matrimonio-07.png"],
+  },
+  {
+    name: "Coloridos",
+    emoji: "🌈",
+    mainImg: "/coloridos-main.png",
+    gallery: ["/coloridos-01.png", "/coloridos-02.png", "/coloridos-03.png", "/coloridos-04.png", "/coloridos-05.png", "/coloridos-06.png", "/coloridos-07.png", "/coloridos-08.png", "/coloridos-09.png", "/coloridos-10.png"],
   },
   {
     name: "Cumpleaños",
     emoji: "🎂",
-    mainImg: "/Cumpleanos_5_main.jpeg",
-    gallery: ["/Cumpleanos_1.png", "/Cumpleanos_2.png", "/Cumpleanos_3.png", "/Cumpleanos_4.jpeg", "/Cumpleanos_6.png", "/Cumpleanos_7.png"],
+    mainImg: "/cumpleanos-main.jpg",
+    gallery: ["/cumpleanos-01.png", "/cumpleanos-02.png", "/cumpleanos-03.png", "/cumpleanos-04.png", "/cumpleanos-05.jpg", "/cumpleanos-06.png", "/cumpleanos-07.png", "/cumpleanos-08.png", "/cumpleanos-09.png"],
   },
   {
-    name: "Personalizados con Nombre",
+    name: "Fechas Especiales",
+    emoji: "📅",
+    mainImg: "/fechas-especiales-main.png",
+    gallery: ["/fechas-especiales-01.png", "/fechas-especiales-02.png"],
+  },
+  {
+    name: "Otros (centros de mesa, recuerdos, llaveros...)",
+    emoji: "🎁",
+    mainImg: "/otros-centros-de-mesa-recuerdos-llaveros-main.png",
+    gallery: ["/otros-centros-de-mesa-recuerdos-llaveros-01.png", "/otros-centros-de-mesa-recuerdos-llaveros-02.png", "/otros-centros-de-mesa-recuerdos-llaveros-03.png", "/otros-centros-de-mesa-recuerdos-llaveros-04.png", "/otros-centros-de-mesa-recuerdos-llaveros-05.png", "/otros-centros-de-mesa-recuerdos-llaveros-06.png", "/otros-centros-de-mesa-recuerdos-llaveros-07.png", "/otros-centros-de-mesa-recuerdos-llaveros-08.png", "/otros-centros-de-mesa-recuerdos-llaveros-09.png"],
+  },
+  {
+    name: "Personajes",
+    emoji: "🦸",
+    mainImg: "/personajes-main.png",
+    gallery: ["/personajes-01.jpg", "/personajes-02.jpg", "/personajes-03.png", "/personajes-04.png", "/personajes-05.png"],
+  },
+  {
+    name: "Personalizados con nombre",
     emoji: "✍️",
-    mainImg: "/Nombres_2_main.png",
-    gallery: ["/Nombres_1.jpeg", "/Nombres_3.png"],
+    mainImg: "/personalizados-con-nombre-main.png",
+    gallery: ["/personalizados-con-nombre-01.jpg", "/personalizados-con-nombre-02.png", "/personalizados-con-nombre-03.png", "/personalizados-con-nombre-04.png", "/personalizados-con-nombre-05.jpg", "/personalizados-con-nombre-06.jpg", "/personalizados-con-nombre-07.png", "/personalizados-con-nombre-08.png", "/personalizados-con-nombre-09.png", "/personalizados-con-nombre-10.jpg", "/personalizados-con-nombre-11.png", "/personalizados-con-nombre-12.png", "/personalizados-con-nombre-13.png"],
   },
   {
     name: "Primera Comunión",
     emoji: "🕊️",
-    mainImg: "/Comunion_2_main.png",
-    gallery: ["/Comunion_1.png", "/Comunion_3.jpeg", "/Comunion_4.png"],
+    mainImg: "/primera-comunion-main.png",
+    gallery: ["/primera-comunion-01.png", "/primera-comunion-02.png", "/primera-comunion-03.png"],
   },
   {
     name: "Revelación de Género",
     emoji: "👶",
-    mainImg: "/Revelacion_1_main.jpeg",
-    gallery: ["/Revelacion_2.png"],
+    mainImg: "/revelacion-de-genero-main.jpg",
+    gallery: ["/revelacion-de-genero-01.png"],
   },
   {
     name: "Temáticos",
     emoji: "🎨",
-    mainImg: "/Tematicos_1_main.png",
-    gallery: ["/Tematicos_2.png", "/Tematicos_3.png", "/Tematicos_4.png"],
+    mainImg: "/tematicos-main.png",
+    gallery: ["/tematicos-01.png", "/tematicos-02.png", "/tematicos-03.png", "/tematicos-04.png", "/tematicos-05.png", "/tematicos-06.png"],
   },
 ];
 
@@ -78,7 +102,7 @@ export default function Gallery() {
           <p className="text-xs text-[#3d2a2a]/40 font-sans mt-3 italic">* Imágenes con fines ilustrativos</p>
         </div>
 
-        {/* 8-card grid */}
+        {/* 12-category grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {categories.map((cat, i) => (
             <div key={cat.name} className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white">
