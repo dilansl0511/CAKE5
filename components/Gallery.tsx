@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const WA_LINK = "https://wa.me/50684043838?text=Hola!%20Me%20interesa%20un%20cake%20topper%20personalizado.";
 
@@ -80,9 +80,59 @@ const categories = [
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
-  const [activeImg, setActiveImg] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ categoryIndex: number; imageIndex: number } | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
-  const closeLightbox = () => setActiveImg(null);
+  const closeLightbox = () => setLightbox(null);
+
+  const getCategoryImages = (categoryIndex: number) => {
+    const category = categories[categoryIndex];
+    return [category.mainImg, ...category.gallery];
+  };
+
+  const openLightbox = (categoryIndex: number, imageIndex: number) => {
+    setLightbox({ categoryIndex, imageIndex });
+  };
+
+  const showPreviousImage = () => {
+    setLightbox((current) => {
+      if (!current) return current;
+      const images = getCategoryImages(current.categoryIndex);
+      return {
+        ...current,
+        imageIndex: (current.imageIndex - 1 + images.length) % images.length,
+      };
+    });
+  };
+
+  const showNextImage = () => {
+    setLightbox((current) => {
+      if (!current) return current;
+      const images = getCategoryImages(current.categoryIndex);
+      return {
+        ...current,
+        imageIndex: (current.imageIndex + 1) % images.length,
+      };
+    });
+  };
+
+  useEffect(() => {
+    if (!lightbox) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPreviousImage();
+      if (event.key === "ArrowRight") showNextImage();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightbox]);
 
   return (
     <section id="galeria" className="py-20 bg-cream">
@@ -148,11 +198,11 @@ export default function Gallery() {
                   <div className="grid grid-cols-2 gap-2">
                     <img src={cat.mainImg} alt={cat.name}
                       className="rounded-xl w-full aspect-square object-cover cursor-pointer hover:opacity-90"
-                      onClick={() => setActiveImg(cat.mainImg)} />
-                    {cat.gallery.map((img) => (
+                      onClick={() => openLightbox(i, 0)} />
+                    {cat.gallery.map((img, imageIndex) => (
                       <img key={img} src={img} alt={cat.name}
                         className="rounded-xl w-full aspect-square object-cover cursor-pointer hover:opacity-90"
-                        onClick={() => setActiveImg(img)} />
+                        onClick={() => openLightbox(i, imageIndex + 1)} />
                     ))}
                   </div>
                 </div>
@@ -170,15 +220,84 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox */}
-      {activeImg && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={closeLightbox}>
-          <button onClick={closeLightbox} className="absolute top-4 right-4 text-white text-4xl font-light hover:opacity-70">×</button>
-          <img src={activeImg} alt="Topper"
-            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain"
-            onClick={e => e.stopPropagation()} />
-        </div>
-      )}
+      {/* Lightbox con navegación */}
+      {lightbox && (() => {
+        const images = getCategoryImages(lightbox.categoryIndex);
+        const category = categories[lightbox.categoryIndex];
+        const currentImage = images[lightbox.imageIndex];
+
+        return (
+          <div
+            className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+            onClick={closeLightbox}
+            onTouchStart={(event) => {
+              touchStartX.current = event.touches[0]?.clientX ?? null;
+            }}
+            onTouchEnd={(event) => {
+              if (touchStartX.current === null) return;
+              const endX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+              const distance = endX - touchStartX.current;
+              touchStartX.current = null;
+
+              if (Math.abs(distance) < 50) return;
+              if (distance > 0) showPreviousImage();
+              else showNextImage();
+            }}
+          >
+            <button
+              type="button"
+              aria-label="Cerrar imagen"
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-20 text-white text-4xl font-light hover:opacity-70"
+            >
+              ×
+            </button>
+
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Imagen anterior"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    showPreviousImage();
+                  }}
+                  className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-14 md:h-14 rounded-full bg-black/45 text-white text-3xl md:text-4xl flex items-center justify-center hover:bg-black/65 transition-colors"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  aria-label="Imagen siguiente"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    showNextImage();
+                  }}
+                  className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-14 md:h-14 rounded-full bg-black/45 text-white text-3xl md:text-4xl flex items-center justify-center hover:bg-black/65 transition-colors"
+                >
+                  ›
+                </button>
+              </>
+            )}
+
+            <div
+              className="relative max-w-[calc(100vw-2rem)] max-h-[90vh] flex flex-col items-center"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <img
+                key={currentImage}
+                src={currentImage}
+                alt={`${category.name} ${lightbox.imageIndex + 1}`}
+                className="max-w-full max-h-[82vh] rounded-2xl shadow-2xl object-contain select-none"
+                draggable={false}
+              />
+              <div className="mt-3 rounded-full bg-black/55 px-4 py-1.5 text-sm text-white font-sans backdrop-blur-sm">
+                {lightbox.imageIndex + 1} de {images.length}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </section>
   );
 }
