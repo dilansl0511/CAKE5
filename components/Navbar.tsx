@@ -22,7 +22,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#" className="flex flex-col leading-none group">
+        <a href="/" className="flex flex-col leading-none group">
           <span className="text-3xl font-bold text-gradient tracking-wide" style={{ fontFamily: "var(--font-playfair)" }}>
             CakeTopper
           </span>
@@ -35,7 +35,7 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
-          {[["Galería","#galeria"],["Cómo funciona","#como-funciona"],["Tipos","#tipos"],["FAQ","#faq"]].map(([label, href]) => (
+          {[["Galería","/#galeria"],["Cómo funciona","/#como-funciona"],["Tipos","/#tipos"],["FAQ","/#faq"]].map(([label, href]) => (
             <a key={href} href={href} className="text-base font-sans text-[#3d2a2a]/70 hover:text-dusty transition-colors duration-200">
               {label}
             </a>

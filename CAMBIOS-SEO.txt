@@ -1,0 +1,23 @@
+CAMBIOS SEO REALIZADOS - 16/07/2026
+
+Se mantuvo la landing principal y se agregaron 9 páginas indexables:
+- /topper-para-queques
+- /cake-topper-personalizado
+- /topper-cumpleanos
+- /topper-bodas
+- /topper-bautizo
+- /topper-primera-comunion
+- /topper-aniversario
+- /topper-revelacion-de-genero
+- /topper-tematicos
+
+Además:
+- Se actualizó sitemap.xml para incluir todas las páginas.
+- Cada página tiene título, descripción, palabras clave, canonical y datos para compartir en redes.
+- Se agregaron enlaces internos desde las tarjetas de la landing.
+- Se reutilizaron las imágenes existentes del proyecto.
+- Se añadieron galerías, preguntas frecuentes y botones de WhatsApp.
+- Se corrigieron enlaces del menú para regresar a las secciones de la landing.
+- El proyecto fue compilado correctamente con Next.js 14.2.29.
+
+Después de publicar en Vercel, envíe nuevamente sitemap.xml en Google Search Console.

@@ -44,7 +44,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-sans font-semibold mb-4 text-sm tracking-widest uppercase">Navegación</h4>
             <ul className="space-y-3">
-              {[["Galería de diseños","#galeria"],["Cómo funciona","#como-funciona"],["Tipos de toppers","#tipos"],["Preguntas frecuentes","#faq"]].map(([label, href]) => (
+              {[["Galería de diseños","/#galeria"],["Cómo funciona","/#como-funciona"],["Tipos de toppers","/#tipos"],["Preguntas frecuentes","/#faq"]].map(([label, href]) => (
                 <li key={href}>
                   <a href={href} className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-sans">{label}</a>
                 </li>
